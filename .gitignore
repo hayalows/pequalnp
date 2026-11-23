@@ -1,0 +1,10 @@
+# The cloud-only clone of the proof submission fork
+/proofs/
+
+# Scratch outputs, caches and credentials (do not commit)
+/scratch/
+/reports/private/
+/.cache/
+.env
+.env.*
+*.log
