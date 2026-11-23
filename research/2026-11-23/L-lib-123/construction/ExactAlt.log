@@ -1,0 +1,2 @@
+'FP3Audit.long_query_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FP3Audit.positive_rung' depends on axioms: [propext, Classical.choice, Quot.sound]

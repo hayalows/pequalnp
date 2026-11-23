@@ -1,0 +1,8 @@
+size 6 10 prime 3629161
+degree 1: cumulative 1 constraints
+degree 2: cumulative 32 constraints
+degree 3: cumulative 492 constraints
+degree 4: cumulative 3394 constraints
+degree 5: cumulative 6638 constraints
+degree 6: cumulative 7592 constraints
+feasibility status 2 The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)

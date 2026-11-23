@@ -1,0 +1,24 @@
+{
+  "gap": {
+    "id": "L-lib-123",
+    "title": "Open, a hard one: can a long deterministic computation always be checked faster by three rounds of guessing? It may be false",
+    "statement": "∃ p q : ℕ, 1 ≤ p ∧ p < q ∧ PEqualNP.Library.FP3 p q",
+    "file": "lean/PEqualNP/Outside/L_lib_123.lean",
+    "module": "PEqualNP.Outside.L_lib_123",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "unlocks": "With the checked L-lib-122 it gives a separation: nondeterministic linear time is not inside deterministic time n^c for some c above 1, on our machines. It is the one open link of a chain that is otherwise checked",
+    "context": "OPEN: A HARD ONE. It may be false. Any saving in the exponent, however small, is enough. It fails relative to some oracles, so a proof must use the content of the computation. No mechanism is known here after three rounds of attempts; the dead ones, with reasons, are in routes/evasion/DEAD-ENDS.md. A proof must prove exactly the recorded statement, with no sorry, no new axiom and no native_decide. Put every declaration of your file inside its own namespace.",
+    "dead": [
+      "trading alternations for savings: the known saving is tiny and already available at two alternations",
+      "tree evaluation with commitments",
+      "iterated table lookup",
+      "compressible configurations: fails relative to a random oracle"
+    ],
+    "weight": 90,
+    "parallel": 10
+  },
+  "shard": null,
+  "shards": null
+}

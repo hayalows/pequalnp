@@ -1,0 +1,7 @@
+First gate AND(0,2), a non-edge. Second gate choices: 168
+Target output matched in two gates: 0
+Best truth-table Hamming distance after second gate: 76
+Output may also directly select an input or first gate; none equals target: True
+Graph automorphisms: 120 non-edge orbit size: 30
+No single deletion with uniform earlier-wire replacement
+No single gate replacement yields redundant gate

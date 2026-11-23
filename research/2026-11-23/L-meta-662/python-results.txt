@@ -1,0 +1,4 @@
+64 inputs: circuit = edge indicator; graph: 6 edges, no 4-cycle, minimum vertex cover 3
+Singleton supports by gate: [2, 2, 2, 0, 0, 3, 0, 0]
+With Gemini gate categories: A=3, B=4, D=1; lhs=12, rhs=11
+Disjoint m copies joined by m-1 narrow ORs: lhs=12m, rhs=3m+4m+2(2m-1)+2=11m

@@ -1,0 +1,1001 @@
+/workspace/pnp-session/Gemini661.lean:50:6: error: Type mismatch: After simplification, term
+  this
+ has type
+  w2 + (u2 + -w1) = y
+but is expected to have type
+  w2 + u2 = w1 + y
+/workspace/pnp-session/Gemini661.lean:87:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b ≥ 1
+  a ≥ 0
+where
+ a := ↑x.length
+ b := ↑[].length
+ c := ↑gs.length
+/workspace/pnp-session/Gemini661.lean:85:66: warning: This simp argument is unused:
+  List.length_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.foldl_cons, ih, stepWire, List.length_append, List.length_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pnp-session/Gemini661.lean:136:73: error: Application type mismatch: The argument
+  Eq.symm hlen
+has type
+  x.length + k = (wiresPrefix gates x k).length
+but is expected to have type
+  List.length ?m.94 = ?m.100
+in the application
+  le_of_eq (Eq.symm hlen)
+/workspace/pnp-session/Gemini661.lean:147:40: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:152:8: error(lean.unknownIdentifier): Unknown constant `Finset.erase_eq_of_not_mem`
+/workspace/pnp-session/Gemini661.lean:181:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pnp-session/Gemini661.lean:190:4: error: Tactic `cases` failed: major premise type is not an inductive type
+  true = true → false = true
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case mpr
+V : Type u_1
+inst✝ : DecidableEq V
+R : Finset V
+f : (V → Bool) → Bool
+hmono : ∀ (y1 y2 : V → Bool), (∀ (v : V), y1 v ≤ y2 v) → f y1 ≤ f y2
+hf : f (maxFalseVec R) = false
+y : V → Bool
+hy : f y = true
+hall : ∀ v ∈ R, y v ≠ true
+hle : ∀ (v : V), y v ≤ maxFalseVec R v
+this : true ≤ false
+⊢ False
+/workspace/pnp-session/Gemini661.lean:208:46: error: unsolved goals
+V : Type u_1
+gates : List Gate
+lift : (V → Bool) → Fin 57 → Bool
+k : ℕ
+hk : k < 57
+y : V → Bool
+⊢ [lift y 0, lift y 1, lift y 2, lift y 3, lift y 4, lift y 5, lift y 6, lift y 7, lift y 8, lift y 9, lift y 10,
+        lift y 11, lift y 12, lift y 13, lift y 14, lift y 15, lift y 16, lift y 17, lift y 18, lift y 19, lift y 20,
+        lift y 21, lift y 22, lift y 23, lift y 24, lift y 25, lift y 26, lift y 27, lift y 28, lift y 29, lift y 30,
+        lift y 31, lift y 32, lift y 33, lift y 34, lift y 35, lift y 36, lift y 37, lift y 38, lift y 39, lift y 40,
+        lift y 41, lift y 42, lift y 43, lift y 44, lift y 45, lift y 46, lift y 47, lift y 48, ⋯][k] =
+    lift y ⟨k, hk⟩
+/workspace/pnp-session/Gemini661.lean:220:4: error: Type mismatch: After simplification, term
+  length_foldl_stepWire gates (List.ofFn (lift y))
+ has type
+  @Eq ℕ
+    (List.foldl stepWire
+        [lift y 0, lift y 1, lift y 2, lift y 3, lift y 4, lift y 5, lift y 6, lift y 7, lift y 8, lift y 9, lift y 10,
+          lift y 11, lift y 12, lift y 13, lift y 14, lift y 15, lift y 16, lift y 17, lift y 18, lift y 19, lift y 20,
+          lift y 21, lift y 22, lift y 23, lift y 24, lift y 25, lift y 26, lift y 27, lift y 28, lift y 29, lift y 30,
+          lift y 31, lift y 32, lift y 33, lift y 34, lift y 35, lift y 36, lift y 37, lift y 38, lift y 39, lift y 40,
+          lift y 41, lift y 42, lift y 43, lift y 44, lift y 45, lift y 46, ⋯]
+        gates).length
+    (57 + gates.length)
+but is expected to have type
+  @Eq ℕ
+    (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w[i]?.getD false) g.inputs)])
+        [lift y 0, lift y 1, lift y 2, lift y 3, lift y 4, lift y 5, lift y 6, lift y 7, lift y 8, lift y 9, lift y 10,
+          lift y 11, lift y 12, lift y 13, lift y 14, lift y 15, lift y 16, lift y 17, lift y 18, lift y 19, lift y 20,
+          lift y 21, lift y 22, lift y 23, lift y 24, lift y 25, lift y 26, lift y 27, lift y 28, lift y 29, lift y 30,
+          lift y 31, lift y 32, lift y 33, lift y 34, lift y 35, lift y 36, lift y 37, lift y 38, lift y 39, lift y 40,
+          lift y 41, lift y 42, lift y 43, lift y 44, lift y 45, lift y 46, ⋯]
+        gates).length
+    (57 + gates.length)
+/workspace/pnp-session/Gemini661.lean:216:37: error: unsolved goals
+V : Type u_1
+gates : List Gate
+lift : (V → Bool) → Fin 57 → Bool
+k : ℕ
+hk : 57 + gates.length ≤ k
+y : V → Bool
+hlen : ({ gates := gates, output := 0 }.wires (List.ofFn (lift y))).length = 57 + gates.length
+⊢ ({ gates := gates, output := 0 }.wires
+            [lift y 0, lift y 1, lift y 2, lift y 3, lift y 4, lift y 5, lift y 6, lift y 7, lift y 8, lift y 9,
+              lift y 10, lift y 11, lift y 12, lift y 13, lift y 14, lift y 15, lift y 16, lift y 17, lift y 18,
+              lift y 19, lift y 20, lift y 21, lift y 22, lift y 23, lift y 24, lift y 25, lift y 26, lift y 27,
+              lift y 28, lift y 29, lift y 30, lift y 31, lift y 32, lift y 33, lift y 34, lift y 35, lift y 36,
+              lift y 37, lift y 38, lift y 39, lift y 40, lift y 41, lift y 42, lift y 43, lift y 44, lift y 45,
+              ⋯])[k]?.getD
+      false =
+    false
+/workspace/pnp-session/Gemini661.lean:221:36: warning: This simp argument is unused:
+  List.getElem?_eq_none (by omega : (Circuit.wires ⟨gates, 0⟩ (List.ofFn (lift y))).length ≤ k)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pnp-session/Gemini661.lean:237:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:239:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:239:2: error: unsolved goals
+case neg
+V : Type u_1
+gates : List Gate
+lift : (V → Bool) → Fin 57 → Bool
+j : ℕ
+hj : j < gates.length
+y : V → Bool
+hxlen : (List.ofFn (lift y)).length = 57
+hstep :
+  ({ gates := gates, output := 0 }.wires (List.ofFn (lift y))).getD (57 + j) false =
+    gates[j].op.eval (List.map (fun i => (wiresPrefix gates (List.ofFn (lift y)) j).getD i false) gates[j].inputs)
+i : ℕ
+a✝ : i ∈ gates[j].inputs
+hi : ¬i < 57 + j
+hlen : (wiresPrefix gates (List.ofFn (lift y)) j).length = 57 + j
+⊢ (wiresPrefix gates
+            [lift y 0, lift y 1, lift y 2, lift y 3, lift y 4, lift y 5, lift y 6, lift y 7, lift y 8, lift y 9,
+              lift y 10, lift y 11, lift y 12, lift y 13, lift y 14, lift y 15, lift y 16, lift y 17, lift y 18,
+              lift y 19, lift y 20, lift y 21, lift y 22, lift y 23, lift y 24, lift y 25, lift y 26, lift y 27,
+              lift y 28, lift y 29, lift y 30, lift y 31, lift y 32, lift y 33, lift y 34, lift y 35, lift y 36,
+              lift y 37, lift y 38, lift y 39, lift y 40, lift y 41, lift y 42, lift y 43, lift y 44, lift y 45, ⋯]
+            j)[i]?.getD
+      false =
+    false
+/workspace/pnp-session/Gemini661.lean:242:38: warning: This simp argument is unused:
+  List.getElem?_eq_none (by omega : (wiresPrefix gates (List.ofFn (lift y)) j).length ≤ i)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pnp-session/Gemini661.lean:252:2: error: Invalid alternative name `h`: Expected `ind`
+/workspace/pnp-session/Gemini661.lean:251:2: error: Alternative `ind` has not been provided
+/workspace/pnp-session/Gemini661.lean:332:4: error: Invalid alternative name `h`: Expected `ind`
+/workspace/pnp-session/Gemini661.lean:331:4: error: Alternative `ind` has not been provided
+/workspace/pnp-session/Gemini661.lean:414:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:415:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:424:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:425:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:489:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:489:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:492:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:497:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:532:36: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 0
+  i ≥ 0
+  h ≥ 2
+  0 ≤ g ≤ 2
+  f ≥ 0
+  e ≥ 0
+  e - f + j ≥ 0
+  d ≥ 0
+  d + e - f ≥ 0
+  b ≥ 0
+  b - i ≤ -1
+  a ≥ 0
+  a - b ≥ 1
+  a - i ≥ 1
+where
+ a := ↑gates.length
+ b := ↑m
+ d := ↑(Finset.image c R).card
+ e := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+ f := ↑R.card
+ g := ↑gates[m].inputs.length
+ h := ↑(singSupp (W (57 + m)) ∩ S_dom).card
+ i := ↑↑⟨m, hm_lt⟩
+ j := ↑(Finset.image h₂.choose R).card
+/workspace/pnp-session/Gemini661.lean:536:19: error(lean.unknownIdentifier): Unknown constant `Finset.card_insert_of_not_mem`
+/workspace/pnp-session/Gemini661.lean:550:10: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 0
+  i ≥ 0
+  h ≥ 2
+  0 ≤ g ≤ 2
+  f ≥ 0
+  e ≥ 0
+  e - f + j ≥ 0
+  d ≥ 0
+  d + e - f ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+where
+ a := ↑gates.length
+ b := ↑m
+ d := ↑(Finset.image c R).card
+ e := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+ f := ↑R.card
+ g := ↑gates[m].inputs.length
+ h := ↑∅.card
+ i := ↑S_cur.card
+ j := ↑(Finset.image h₂.choose R).card
+/workspace/pnp-session/Gemini661.lean:563:37: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:559:56: error: unsolved goals
+gates : List Gate
+S_dom : Finset (Fin 57)
+c_out : Bool
+R : Finset (Fin 57)
+hRS : R ⊆ S_dom
+hRne : R.Nonempty
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+hnot_const :
+  ∀ (j : ℕ) (hj : j < gates.length),
+    gates[j].op = GateOp.not →
+      ∃ c, ∀ (y : Fin 57 → Bool), wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) (57 + j) y = c
+outW : ℕ
+hout :
+  ∀ (y : Fin 57 → Bool),
+    wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW y = decide (∃ v ∈ R, y v = true)
+lift : (Fin 57 → Bool) → Fin 57 → Bool := fun y u => if u ∈ S_dom then y u else c_out
+W : ℕ → (Fin 57 → Bool) → Bool := fun k => wireFn gates lift k
+hlift_mono : ∀ (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → ∀ (u : Fin 57), lift y1 u ≤ lift y2 u
+hmono : ∀ (k : ℕ) (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → W k y1 ≤ W k y2
+m : ℕ
+ih :
+  m ≤ gates.length →
+    ∃ c,
+      (∀ k < 57 + m,
+          isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v) ∧
+        R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+hm : m + 1 ≤ gates.length
+c : Fin 57 → ℕ
+hinv :
+  ∀ k < 57 + m,
+    isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v
+hcard : R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+hm_lt : m < gates.length
+i_cur : Fin gates.length := ⟨m, hm_lt⟩
+S_cur : Finset (Fin gates.length) := {i ∈ usefulOR gates S_dom lift R | ↑i < m}
+S_next : Finset (Fin gates.length) := {i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}
+hsub_filter : S_cur ⊆ S_next
+hmem_use : i_cur ∈ usefulOR gates S_dom lift R
+hg : (gates[m].op = GateOp.and ∨ gates[m].op = GateOp.or ∨ gates[m].op = GateOp.not) ∧ gates[m].inputs.length ≤ 2
+hor : gates[m].op = GateOp.or
+hbd_m : isBounded R (W (57 + m))
+h2 : 2 ≤ (singSupp (W (57 + m)) ∩ S_dom).card
+hcard_inc : S_next.card = S_cur.card + 1
+a : ℕ
+h_in : gates[m].inputs = [a]
+u v : Fin 57
+hk : 57 + m < 57 + (m + 1)
+hbk : isBounded R (W (57 + m))
+hu : u ∈ singSupp (W (57 + m)) ∩ S_dom
+hv : v ∈ singSupp (W (57 + m)) ∩ S_dom
+hkm : ¬57 + m < 57 + m
+ha : a < 57 + m
+y : Fin 57 → Bool
+⊢ wireFn gates lift a y = true → a < 57 + m
+/workspace/pnp-session/Gemini661.lean:575:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:572:65: error: unsolved goals
+gates : List Gate
+S_dom : Finset (Fin 57)
+c_out : Bool
+R : Finset (Fin 57)
+hRS : R ⊆ S_dom
+hRne : R.Nonempty
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+hnot_const :
+  ∀ (j : ℕ) (hj : j < gates.length),
+    gates[j].op = GateOp.not →
+      ∃ c, ∀ (y : Fin 57 → Bool), wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) (57 + j) y = c
+outW : ℕ
+hout :
+  ∀ (y : Fin 57 → Bool),
+    wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW y = decide (∃ v ∈ R, y v = true)
+lift : (Fin 57 → Bool) → Fin 57 → Bool := fun y u => if u ∈ S_dom then y u else c_out
+W : ℕ → (Fin 57 → Bool) → Bool := fun k => wireFn gates lift k
+hlift_mono : ∀ (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → ∀ (u : Fin 57), lift y1 u ≤ lift y2 u
+hmono : ∀ (k : ℕ) (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → W k y1 ≤ W k y2
+m : ℕ
+ih :
+  m ≤ gates.length →
+    ∃ c,
+      (∀ k < 57 + m,
+          isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v) ∧
+        R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+hm : m + 1 ≤ gates.length
+c : Fin 57 → ℕ
+hinv :
+  ∀ k < 57 + m,
+    isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v
+hcard : R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+hm_lt : m < gates.length
+i_cur : Fin gates.length := ⟨m, hm_lt⟩
+S_cur : Finset (Fin gates.length) := {i ∈ usefulOR gates S_dom lift R | ↑i < m}
+S_next : Finset (Fin gates.length) := {i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}
+hsub_filter : S_cur ⊆ S_next
+hmem_use : i_cur ∈ usefulOR gates S_dom lift R
+hg : (gates[m].op = GateOp.and ∨ gates[m].op = GateOp.or ∨ gates[m].op = GateOp.not) ∧ gates[m].inputs.length ≤ 2
+hor : gates[m].op = GateOp.or
+hbd_m : isBounded R (W (57 + m))
+h2 : 2 ≤ (singSupp (W (57 + m)) ∩ S_dom).card
+hcard_inc : S_next.card = S_cur.card + 1
+a : ℕ
+h_in : gates[m].inputs = [a]
+u v : Fin 57
+hk : 57 + m < 57 + (m + 1)
+hbk : isBounded R (W (57 + m))
+hu : u ∈ singSupp (W (57 + m)) ∩ S_dom
+hv : v ∈ singSupp (W (57 + m)) ∩ S_dom
+hkm : ¬57 + m < 57 + m
+ha : ¬a < 57 + m
+⊢ a < 57 + m → wireFn gates lift a (singletonVec u) = false
+/workspace/pnp-session/Gemini661.lean:577:12: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  l ≥ 0
+  k ≥ 0
+  j ≥ 0
+  i ≥ 2
+  0 ≤ h ≤ 2
+  g ≥ 0
+  f ≥ 0
+  f - g + l ≥ 0
+  e ≥ 0
+  e - g + k ≤ -1
+  e + f - g ≥ 0
+  d ≥ 0
+  b ≥ 0
+  b - d ≥ 1
+where
+ b := ↑gates.length
+ d := ↑m
+ e := ↑(Finset.image c R).card
+ f := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+ g := ↑R.card
+ h := ↑gates[m].inputs.length
+ i := ↑(singSupp (W (57 + m)) ∩ S_dom).card
+ j := ↑S_cur.card
+ k := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}.card
+ l := ↑(Finset.image h₂.choose R).card
+/workspace/pnp-session/Gemini661.lean:593:63: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:596:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:600:63: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:603:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:630:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:633:16: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  p ≥ 0
+  o ≥ 0
+  n ≥ 0
+  l ≥ 0
+  k ≥ 0
+  j ≥ 2
+  0 ≤ i ≤ 2
+  h ≥ 0
+  h - n - o ≥ 1
+  g ≥ 0
+  g - h + p ≥ 0
+  f ≥ 0
+  f - l ≤ 1
+  f + g - h ≥ 0
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 1
+where
+ d := ↑gates.length
+ e := ↑m
+ f := ↑(Finset.image c R).card
+ g := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+ h := ↑R.card
+ i := ↑gates[m].inputs.length
+ j := ↑(singSupp (W (57 + m)) ∩ S_dom).card
+ k := ↑S_cur.card
+ l := ↑(Finset.image (fun v => if c v = c v0 then c u0 else c v) R).card
+ n := ↑(Finset.image c' R).card
+ o := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}.card
+ p := ↑(Finset.image h₂.choose R).card
+/workspace/pnp-session/Gemini661.lean:648:16: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  n ≥ 0
+  l ≥ 0
+  k ≥ 0
+  j ≥ 2
+  0 ≤ i ≤ 2
+  h ≥ 0
+  g ≥ 0
+  g - h + n ≥ 0
+  f ≥ 0
+  f - h + l ≤ -1
+  f + g - h ≥ 0
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 1
+where
+ d := ↑gates.length
+ e := ↑m
+ f := ↑(Finset.image c R).card
+ g := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+ h := ↑R.card
+ i := ↑gates[m].inputs.length
+ j := ↑(singSupp (W (57 + m)) ∩ S_dom).card
+ k := ↑S_cur.card
+ l := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}.card
+ n := ↑(Finset.image h₂.choose R).card
+/workspace/pnp-session/Gemini661.lean:663:14: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  n ≥ 0
+  l ≥ 0
+  k ≥ 0
+  j ≥ 2
+  0 ≤ i ≤ 2
+  h ≥ 0
+  g ≥ 0
+  g - h + n ≥ 0
+  f ≥ 0
+  f - h + l ≤ -1
+  f + g - h ≥ 0
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 1
+where
+ d := ↑gates.length
+ e := ↑m
+ f := ↑(Finset.image c R).card
+ g := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+ h := ↑R.card
+ i := ↑gates[m].inputs.length
+ j := ↑(singSupp (W (57 + m)) ∩ S_dom).card
+ k := ↑S_cur.card
+ l := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}.card
+ n := ↑(Finset.image h₂.choose R).card
+/workspace/pnp-session/Gemini661.lean:691:40: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:688:58: error: unsolved goals
+gates : List Gate
+S_dom : Finset (Fin 57)
+c_out : Bool
+R : Finset (Fin 57)
+hRS : R ⊆ S_dom
+hRne : R.Nonempty
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+hnot_const :
+  ∀ (j : ℕ) (hj : j < gates.length),
+    gates[j].op = GateOp.not →
+      ∃ c, ∀ (y : Fin 57 → Bool), wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) (57 + j) y = c
+outW : ℕ
+hout :
+  ∀ (y : Fin 57 → Bool),
+    wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW y = decide (∃ v ∈ R, y v = true)
+lift : (Fin 57 → Bool) → Fin 57 → Bool := fun y u => if u ∈ S_dom then y u else c_out
+W : ℕ → (Fin 57 → Bool) → Bool := fun k => wireFn gates lift k
+hlift_mono : ∀ (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → ∀ (u : Fin 57), lift y1 u ≤ lift y2 u
+hmono : ∀ (k : ℕ) (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → W k y1 ≤ W k y2
+m : ℕ
+ih :
+  m ≤ gates.length →
+    ∃ c,
+      (∀ k < 57 + m,
+          isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v) ∧
+        R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+hm : m + 1 ≤ gates.length
+c : Fin 57 → ℕ
+hinv :
+  ∀ k < 57 + m,
+    isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v
+hcard : R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+hm_lt : m < gates.length
+i_cur : Fin gates.length := ⟨m, hm_lt⟩
+S_cur : Finset (Fin gates.length) := {i ∈ usefulOR gates S_dom lift R | ↑i < m}
+S_next : Finset (Fin gates.length) := {i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}
+hsub_filter : S_cur ⊆ S_next
+hmem_use : i_cur ∉ usefulOR gates S_dom lift R
+u v : Fin 57
+hk : 57 + m < 57 + (m + 1)
+hbk : isBounded R (W (57 + m))
+hu : u ∈ singSupp (W (57 + m)) ∩ S_dom
+hv : v ∈ singSupp (W (57 + m)) ∩ S_dom
+hkm : ¬57 + m < 57 + m
+hlen : gates[m].inputs.length ≤ 2
+hand : gates[m].op = GateOp.and
+a : ℕ
+h_in : gates[m].inputs = [a]
+ha : a < 57 + m
+y : Fin 57 → Bool
+⊢ wireFn gates lift a y = true → a < 57 + m
+/workspace/pnp-session/Gemini661.lean:698:40: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:695:67: error: unsolved goals
+gates : List Gate
+S_dom : Finset (Fin 57)
+c_out : Bool
+R : Finset (Fin 57)
+hRS : R ⊆ S_dom
+hRne : R.Nonempty
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+hnot_const :
+  ∀ (j : ℕ) (hj : j < gates.length),
+    gates[j].op = GateOp.not →
+      ∃ c, ∀ (y : Fin 57 → Bool), wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) (57 + j) y = c
+outW : ℕ
+hout :
+  ∀ (y : Fin 57 → Bool),
+    wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW y = decide (∃ v ∈ R, y v = true)
+lift : (Fin 57 → Bool) → Fin 57 → Bool := fun y u => if u ∈ S_dom then y u else c_out
+W : ℕ → (Fin 57 → Bool) → Bool := fun k => wireFn gates lift k
+hlift_mono : ∀ (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → ∀ (u : Fin 57), lift y1 u ≤ lift y2 u
+hmono : ∀ (k : ℕ) (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → W k y1 ≤ W k y2
+m : ℕ
+ih :
+  m ≤ gates.length →
+    ∃ c,
+      (∀ k < 57 + m,
+          isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v) ∧
+        R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+hm : m + 1 ≤ gates.length
+c : Fin 57 → ℕ
+hinv :
+  ∀ k < 57 + m,
+    isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v
+hcard : R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+hm_lt : m < gates.length
+i_cur : Fin gates.length := ⟨m, hm_lt⟩
+S_cur : Finset (Fin gates.length) := {i ∈ usefulOR gates S_dom lift R | ↑i < m}
+S_next : Finset (Fin gates.length) := {i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}
+hsub_filter : S_cur ⊆ S_next
+hmem_use : i_cur ∉ usefulOR gates S_dom lift R
+u v : Fin 57
+hk : 57 + m < 57 + (m + 1)
+hbk : isBounded R (W (57 + m))
+hu : u ∈ singSupp (W (57 + m)) ∩ S_dom
+hv : v ∈ singSupp (W (57 + m)) ∩ S_dom
+hkm : ¬57 + m < 57 + m
+hlen : gates[m].inputs.length ≤ 2
+hand : gates[m].op = GateOp.and
+a : ℕ
+h_in : gates[m].inputs = [a]
+ha : ¬a < 57 + m
+⊢ a < 57 + m → wireFn gates lift a (singletonVec u) = false
+/workspace/pnp-session/Gemini661.lean:711:69: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:721:93: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:724:69: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pnp-session/Gemini661.lean:734:93: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pnp-session/Gemini661.lean:740:16: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pnp-session/Gemini661.lean:759:16: error: 'change' tactic failed, pattern
+  wireFn gates lift (57 + m) (singletonVec u) = true
+is not definitionally equal to target
+  W (57 + m) (singletonVec u) = true ∧ u ∈ S_dom
+/workspace/pnp-session/Gemini661.lean:768:10: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 0
+  i ≥ 0
+  h ≥ 0
+  g ≥ 0
+  g - h ≥ 0
+  f ≥ 0
+  e ≥ 0
+  e - f + j ≥ 0
+  d ≥ 0
+  d - f + i ≤ -1
+  d + e - f ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+where
+ a := ↑gates.length
+ b := ↑m
+ d := ↑(Finset.image c R).card
+ e := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+ f := ↑R.card
+ g := ↑S_next.card
+ h := ↑S_cur.card
+ i := ↑{i ∈ usefulOR gates S_dom lift R | ↑i < m + 1}.card
+ j := ↑(Finset.image h₂.choose R).card
+/workspace/pnp-session/Gemini661.lean:774:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pnp-session/Gemini661.lean:778:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  W outW (singletonVec v0)
+in the target expression
+  wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW (singletonVec v0) =
+    decide (∃ v ∈ R, singletonVec v0 v = true)
+
+gates : List Gate
+S_dom : Finset (Fin 57)
+c_out : Bool
+R : Finset (Fin 57)
+hRS : R ⊆ S_dom
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+hnot_const :
+  ∀ (j : ℕ) (hj : j < gates.length),
+    gates[j].op = GateOp.not →
+      ∃ c, ∀ (y : Fin 57 → Bool), wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) (57 + j) y = c
+outW : ℕ
+hout :
+  ∀ (y : Fin 57 → Bool),
+    wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW y = decide (∃ v ∈ R, y v = true)
+lift : (Fin 57 → Bool) → Fin 57 → Bool := fun y u => if u ∈ S_dom then y u else c_out
+W : ℕ → (Fin 57 → Bool) → Bool := fun k => wireFn gates lift k
+hlift_mono : ∀ (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → ∀ (u : Fin 57), lift y1 u ≤ lift y2 u
+hmono : ∀ (k : ℕ) (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → W k y1 ≤ W k y2
+hstep :
+  ∀ m ≤ gates.length,
+    ∃ c,
+      (∀ k < 57 + m,
+          isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v) ∧
+        R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+c : Fin 57 → ℕ
+hinv :
+  ∀ k < 57 + gates.length,
+    isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v
+hcard : R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < gates.length}.card
+hge : 57 + gates.length ≤ outW
+v0 : Fin 57
+hv0 : v0 ∈ R
+h1 :
+  wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW (singletonVec v0) =
+    decide (∃ v ∈ R, singletonVec v0 v = true)
+h2 : wireFn gates lift outW (singletonVec v0) = false
+⊢ False
+/workspace/pnp-session/Gemini661.lean:783:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW y
+in the target expression
+  W outW y = true
+
+gates : List Gate
+S_dom : Finset (Fin 57)
+c_out : Bool
+R : Finset (Fin 57)
+hRS : R ⊆ S_dom
+hRne : R.Nonempty
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+hnot_const :
+  ∀ (j : ℕ) (hj : j < gates.length),
+    gates[j].op = GateOp.not →
+      ∃ c, ∀ (y : Fin 57 → Bool), wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) (57 + j) y = c
+outW : ℕ
+hout :
+  ∀ (y : Fin 57 → Bool),
+    wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW y = decide (∃ v ∈ R, y v = true)
+lift : (Fin 57 → Bool) → Fin 57 → Bool := fun y u => if u ∈ S_dom then y u else c_out
+W : ℕ → (Fin 57 → Bool) → Bool := fun k => wireFn gates lift k
+hlift_mono : ∀ (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → ∀ (u : Fin 57), lift y1 u ≤ lift y2 u
+hmono : ∀ (k : ℕ) (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → W k y1 ≤ W k y2
+hstep :
+  ∀ m ≤ gates.length,
+    ∃ c,
+      (∀ k < 57 + m,
+          isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v) ∧
+        R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+c : Fin 57 → ℕ
+hinv :
+  ∀ k < 57 + gates.length,
+    isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v
+hcard : R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < gates.length}.card
+hout_lt : outW < 57 + gates.length
+y : Fin 57 → Bool
+hy : W outW y = true
+⊢ ∃ v ∈ R, y v = true
+/workspace/pnp-session/Gemini661.lean:789:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW (singletonVec v)
+in the target expression
+  W outW (singletonVec v) = true
+
+gates : List Gate
+S_dom : Finset (Fin 57)
+c_out : Bool
+R : Finset (Fin 57)
+hRS : R ⊆ S_dom
+hRne : R.Nonempty
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+hnot_const :
+  ∀ (j : ℕ) (hj : j < gates.length),
+    gates[j].op = GateOp.not →
+      ∃ c, ∀ (y : Fin 57 → Bool), wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) (57 + j) y = c
+outW : ℕ
+hout :
+  ∀ (y : Fin 57 → Bool),
+    wireFn gates (fun y u => if u ∈ S_dom then y u else c_out) outW y = decide (∃ v ∈ R, y v = true)
+lift : (Fin 57 → Bool) → Fin 57 → Bool := fun y u => if u ∈ S_dom then y u else c_out
+W : ℕ → (Fin 57 → Bool) → Bool := fun k => wireFn gates lift k
+hlift_mono : ∀ (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → ∀ (u : Fin 57), lift y1 u ≤ lift y2 u
+hmono : ∀ (k : ℕ) (y1 y2 : Fin 57 → Bool), (∀ (v : Fin 57), y1 v ≤ y2 v) → W k y1 ≤ W k y2
+hstep :
+  ∀ m ≤ gates.length,
+    ∃ c,
+      (∀ k < 57 + m,
+          isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v) ∧
+        R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < m}.card
+c : Fin 57 → ℕ
+hinv :
+  ∀ k < 57 + gates.length,
+    isBounded R (W k) → ∀ (u v : Fin 57), u ∈ singSupp (W k) ∩ S_dom → v ∈ singSupp (W k) ∩ S_dom → c u = c v
+hcard : R.card ≤ (Finset.image c R).card + {i ∈ usefulOR gates S_dom lift R | ↑i < gates.length}.card
+hout_lt : outW < 57 + gates.length
+hout_bd : isBounded R (W outW)
+v : Fin 57
+hv : v ∈ R
+⊢ W outW (singletonVec v) = true
+/workspace/pnp-session/Gemini661.lean:805:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  d ≥ 0
+  d - e ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ -56
+where
+ a := ↑gates.length
+ b := ↑outW
+ d := ↑(usefulOR gates S_dom lift R).card
+ e := ↑(R.card - 1)
+ f := ↑(usefulOR gates S_dom (fun y u => if u ∈ S_dom then y u else c_out) R).card
+/workspace/pnp-session/Gemini661.lean:563:37: warning: This simp argument is unused:
+  if_pos ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eval_or_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pnp-session/Gemini661.lean:575:37: warning: This simp argument is unused:
+  if_neg ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eval_or_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pnp-session/Gemini661.lean:691:40: warning: This simp argument is unused:
+  if_pos ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eval_and_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pnp-session/Gemini661.lean:698:40: warning: This simp argument is unused:
+  if_neg ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [eval_and_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pnp-session/Gemini661.lean:803:10: warning: This simp argument is unused:
+  i.isLt
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pnp-session/Gemini661.lean:852:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pnp-session/Gemini661.lean:857:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pnp-session/Gemini661.lean:870:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  singletonVec u ⟨out w, hlt⟩
+in the target expression
+  id (singletonVec u) ⟨out w, hlt⟩ = decide (∃ v ∈ line w, singletonVec u v = true)
+
+gates : List Gate
+out : Fin 57 → ℕ
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+huniq : ∀ (i j : Fin gates.length), (gates.get i).op = GateOp.not → (gates.get j).op = GateOp.not → i = j
+heval :
+  ∀ (w : Fin 57) (x : Fin 57 → Bool),
+    { gates := gates, output := out w }.eval (List.ofFn x) =
+      decide (∃ v ∈ Finset.image (fun u => u + w) {0, 1, 3, 13, 32, 36, 43, 52}, x v = true)
+hwire : ∀ (w : Fin 57) (x : Fin 57 → Bool), wireFn gates id (out w) x = decide (∃ v ∈ line w, x v = true)
+i0 : Fin gates.length
+hi0_not : gates[↑i0].op = GateOp.not
+huniq_i0 : ∀ (j : Fin gates.length), (gates.get j).op = GateOp.not → j = i0
+hanti :
+  ∀ (x1 x2 : Fin 57 → Bool),
+    (∀ (v : Fin 57), x1 v ≤ x2 v) → wireFn gates id (57 + ↑i0) x2 ≤ wireFn gates id (57 + ↑i0) x1
+w : Fin 57
+hlt : out w < 57
+h8 : (line w).card = 8
+u : Fin 57
+huL : u ∈ line w
+hune : u ≠ ⟨out w, hlt⟩
+h1 : id (singletonVec u) ⟨out w, hlt⟩ = decide (∃ v ∈ line w, singletonVec u v = true)
+hleft : singletonVec u ⟨out w, hlt⟩ = false
+hright : decide (∃ v ∈ line w, singletonVec u v = true) = true
+⊢ False
+/workspace/pnp-session/Gemini661.lean:875:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pnp-session/Gemini661.lean:895:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pnp-session/Gemini661.lean:899:42: error: Function expected at
+  (hall v).left hv1
+but this term has type
+  v ∈ line w2
+
+Note: Expected a function because this term is being applied to the argument
+  hv2
+/workspace/pnp-session/Gemini661.lean:900:42: error: Function expected at
+  (hall v).right hv2
+but this term has type
+  v ∈ line w1
+
+Note: Expected a function because this term is being applied to the argument
+  hv1
+/workspace/pnp-session/Gemini661.lean:934:6: error: Tactic `cases` failed: major premise type is not an inductive type
+  true = true → false = true
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+gates : List Gate
+out : Fin 57 → ℕ
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+huniq : ∀ (i j : Fin gates.length), (gates.get i).op = GateOp.not → (gates.get j).op = GateOp.not → i = j
+heval :
+  ∀ (w : Fin 57) (x : Fin 57 → Bool),
+    { gates := gates, output := out w }.eval (List.ofFn x) =
+      decide (∃ v ∈ Finset.image (fun u => u + w) {0, 1, 3, 13, 32, 36, 43, 52}, x v = true)
+hwire : ∀ (w : Fin 57) (x : Fin 57 → Bool), wireFn gates id (out w) x = decide (∃ v ∈ line w, x v = true)
+i0 : Fin gates.length
+hi0_not : gates[↑i0].op = GateOp.not
+huniq_i0 : ∀ (j : Fin gates.length), (gates.get j).op = GateOp.not → j = i0
+hanti :
+  ∀ (x1 x2 : Fin 57 → Bool),
+    (∀ (v : Fin 57), x1 v ≤ x2 v) → wireFn gates id (57 + ↑i0) x2 ≤ wireFn gates id (57 + ↑i0) x1
+hout_ge : ∀ (w : Fin 57), 57 ≤ out w
+hout_lt : ∀ (w : Fin 57), out w < 57 + gates.length
+outIdx : Fin 57 → Fin gates.length := fun w => ⟨out w - 57, ⋯⟩
+hout_inj : Function.Injective outIdx
+w : Fin 57
+heq : outIdx w = i0
+hout_eq : out w = 57 + ↑i0
+h01 : true ≤ false
+ht : decide (∃ v ∈ line w, true = true) = true
+hf : decide (∃ v ∈ line w, false = true) = false
+⊢ False
+/workspace/pnp-session/Gemini661.lean:954:54: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  wireFn gates lift1 (57 + ↑i0) y
+in the target expression
+  wireFn gates id (57 + ↑i0) (lift1 y) ≤ false
+
+gates : List Gate
+out : Fin 57 → ℕ
+hvalid : ∀ g ∈ gates, (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+huniq : ∀ (i j : Fin gates.length), (gates.get i).op = GateOp.not → (gates.get j).op = GateOp.not → i = j
+heval :
+  ∀ (w : Fin 57) (x : Fin 57 → Bool),
+    { gates := gates, output := out w }.eval (List.ofFn x) =
+      decide (∃ v ∈ Finset.image (fun u => u + w) {0, 1, 3, 13, 32, 36, 43, 52}, x v = true)
+hwire : ∀ (w : Fin 57) (x : Fin 57 → Bool), wireFn gates id (out w) x = decide (∃ v ∈ line w, x v = true)
+i0 : Fin gates.length
+hi0_not : gates[↑i0].op = GateOp.not
+huniq_i0 : ∀ (j : Fin gates.length), (gates.get j).op = GateOp.not → j = i0
+hanti :
+  ∀ (x1 x2 : Fin 57 → Bool),
+    (∀ (v : Fin 57), x1 v ≤ x2 v) → wireFn gates id (57 + ↑i0) x2 ≤ wireFn gates id (57 + ↑i0) x1
+hout_ge : ∀ (w : Fin 57), 57 ≤ out w
+hout_lt : ∀ (w : Fin 57), out w < 57 + gates.length
+outIdx : Fin 57 → Fin gates.length := fun w => ⟨out w - 57, ⋯⟩
+hout_inj : Function.Injective outIdx
+hi0_not_out : ∀ (w : Fin 57), outIdx w ≠ i0
+V : Finset (Fin 57) := line 0 ∪ line 1
+x01 : Fin 57 → Bool := fun v => decide (v ∉ V)
+hz : wireFn gates id (57 + ↑i0) x01 = false
+lift1 : (Fin 57 → Bool) → Fin 57 → Bool := fun y u => if u ∈ V then y u else true
+hj : ↑i0 < gates.length
+hnot : gates[↑i0].op = GateOp.not
+hjeq : ⟨↑i0, hj⟩ = i0
+y : Fin 57 → Bool
+hle : ∀ (v : Fin 57), x01 v ≤ lift1 y v
+hle_z : wireFn gates id (57 + ↑i0) (lift1 y) ≤ false
+ht : wireFn gates lift1 (57 + ↑i0) y = true
+⊢ False
+/workspace/pnp-session/Gemini661.lean:959:89: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pnp-session/Gemini661.lean:982:6: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pnp-session/Gemini661.lean:1130:4: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pnp-session/Gemini661.lean:826:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

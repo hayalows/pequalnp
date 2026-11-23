@@ -1,0 +1,16 @@
+k=1: 8 vertices, 8 edges, four valid pages; all vertex loads 2
+k=1: 10 vertices, 9 edges, three valid pages; load at most 4
+k=2: 24 vertices, 28 edges, four valid pages; all vertex loads 4
+k=2: 32 vertices, 32 edges, three valid pages; load at most 8
+k=3: 64 vertices, 80 edges, four valid pages; all vertex loads 8
+k=3: 88 vertices, 92 edges, three valid pages; load at most 16
+k=4: 160 vertices, 208 edges, four valid pages; all vertex loads 16
+k=4: 224 vertices, 240 edges, three valid pages; load at most 32
+k=5: 384 vertices, 512 edges, four valid pages; all vertex loads 32
+k=5: 544 vertices, 592 edges, three valid pages; load at most 64
+k=6: 896 vertices, 1216 edges, four valid pages; all vertex loads 64
+k=6: 1280 vertices, 1408 edges, three valid pages; load at most 128
+k=7: 2048 vertices, 2816 edges, four valid pages; all vertex loads 128
+k=7: 2944 vertices, 3264 edges, three valid pages; load at most 256
+k=8: 4608 vertices, 6400 edges, four valid pages; all vertex loads 256
+k=8: 6656 vertices, 7424 edges, three valid pages; load at most 512

@@ -1,0 +1,25 @@
+m=1 counts (nullity:patterns) 0:5 d<=0 max-nullity row masks 0 0 0 0 1
+m=2 counts (nullity:patterns) 0:10 1:15 d<=1 max-nullity row masks 0 0 0 0 3
+m=3 counts (nullity:patterns) 0:30 1:50 2:15 d<=2 max-nullity row masks 0 0 0 0 7
+m=4 counts (nullity:patterns) 0:115 1:110 2:95 3:10 d<=3 max-nullity row masks 0 0 0 0 15
+m=5 counts (nullity:patterns) 0:291 1:410 2:215 3:105 4:6 d<=4 max-nullity row masks 0 0 0 0 31
+m=6 counts (nullity:patterns) 0:860 1:1010 2:655 3:200 4:55 d<=4 max-nullity row masks 0 0 1 1 30
+m=7 counts (nullity:patterns) 0:2190 1:2510 2:1255 3:470 4:100 5:25 d<=5 max-nullity row masks 0 1 1 1 30
+m=8 counts (nullity:patterns) 0:5280 1:4950 2:2290 3:635 4:190 5:25 6:5 d<=6 max-nullity row masks 1 1 1 1 30
+m=9 counts (nullity:patterns) 0:11370 1:8120 2:3150 3:890 4:145 5:20 6:5 d<=7 max-nullity row masks 1 1 1 1 31
+m=10 counts (nullity:patterns) 0:20458 1:11765 2:3390 3:690 4:80 5:20 d<=7 max-nullity row masks 1 1 1 3 31
+m=11 counts (nullity:patterns) 0:32760 1:12530 2:2795 3:240 4:80 d<=7 max-nullity row masks 1 1 1 7 31
+m=12 counts (nullity:patterns) 0:43500 1:11145 2:880 3:275 d<=7 max-nullity row masks 1 1 1 15 31
+m=13 counts (nullity:patterns) 0:49645 1:5230 2:890 3:35 d<=7 max-nullity row masks 1 1 7 7 31
+m=14 counts (nullity:patterns) 0:44390 1:3695 2:320 d<=7 max-nullity row masks 1 1 7 15 31
+m=15 counts (nullity:patterns) 0:34213 1:2110 2:80 d<=8 max-nullity row masks 1 1 15 15 31
+m=16 counts (nullity:patterns) 0:22720 1:980 d<=8 max-nullity row masks 1 1 15 31 31
+m=17 counts (nullity:patterns) 0:13025 1:350 d<=8 max-nullity row masks 1 1 31 31 31
+m=18 counts (nullity:patterns) 0:6410 1:140 d<=9 max-nullity row masks 1 15 15 15 31
+m=19 counts (nullity:patterns) 0:2760 1:20 d<=9 max-nullity row masks 3 29 29 29 31
+m=20 counts (nullity:patterns) 0:1027 d<=9 max-nullity row masks 0 31 31 31 31
+m=21 counts (nullity:patterns) 0:330 d<=10 max-nullity row masks 1 31 31 31 31
+m=22 counts (nullity:patterns) 0:95 d<=10 max-nullity row masks 3 31 31 31 31
+m=23 counts (nullity:patterns) 0:25 d<=11 max-nullity row masks 7 31 31 31 31
+m=24 counts (nullity:patterns) 0:5 d<=11 max-nullity row masks 15 31 31 31 31
+m=25 counts (nullity:patterns) 0:1 d<=12 max-nullity row masks 31 31 31 31 31

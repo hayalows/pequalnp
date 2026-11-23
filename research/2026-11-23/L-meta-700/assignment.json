@@ -1,0 +1,15 @@
+{
+  "id": "L-meta-700",
+  "title": "Weighted count on the bowtie (two triangles sharing a vertex): AND gates plus wide OR gates plus twice the narrow OR gates number at least 10",
+  "statement": "∀ (C : PEqualNP.CircuitLowerBounds.Circuit) (A B D : Finset ℕ), PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 5 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 5, (u.val, v.val) ∈ ([(0, 1), (0, 2), (1, 2), (0, 3), (0, 4), (3, 4)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.and → j ∈ A) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.or → (∃ u v : Fin 5, u ≠ v ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = u)))).getD (5 + j) false = true ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = v)))).getD (5 + j) false = true) → j ∈ B) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.or → ¬ (∃ u v : Fin 5, u ≠ v ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = u)))).getD (5 + j) false = true ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = v)))).getD (5 + j) false = true) → j ∈ D) → 10 ≤ A.card + B.card + 2 * D.card",
+  "file": "lean/PEqualNP/Outside/L_meta_700.lean",
+  "module": "PEqualNP.Outside.L_meta_700",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "An exact small value of a count of gates by type: data for the library",
+  "context": "SKETCH: no route from checked values; an exhaustive certificate over small circuits of AND and OR gates, decided by the kernel. Finite. An OR gate is wide when it is true at two single-vertex inputs, narrow otherwise. In-house check: an exact search over reduced circuits finished and found none below 10; the count is attained by an explicit gate list (computed, not checked). Uses only the definitions root. Prove exactly the recorded statement, no sorry, no new axiom. Put every declaration of your file inside its own namespace.",
+  "dead": [],
+  "weight": 25,
+  "parallel": 3
+}
